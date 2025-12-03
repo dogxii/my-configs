@@ -1,0 +1,23 @@
+{
+  "name": "my-configuration",
+  "version": "1.0.0",
+  "description": "Personal application configurations with auto-formatting, README generation, and secrets detection",
+  "type": "module",
+  "scripts": {
+    "format": "bun run scripts/format.ts",
+    "readme": "bun run scripts/generate-readme.ts",
+    "check-secrets": "bun run scripts/check-secrets.ts",
+    "validate": "bun run scripts/check-secrets.ts && bun run scripts/format.ts --check",
+    "all": "bun run scripts/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "configuration",
+    "dotfiles",
+    "settings"
+  ],
+  "license": "MIT"
+}

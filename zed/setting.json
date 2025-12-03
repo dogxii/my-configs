@@ -1,0 +1,230 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "show_edit_predictions": false,
+  "show_completions_on_input": true,
+  "icon_theme": "Material Icon Theme",
+  "agent": {
+    "always_allow_tool_actions": true,
+    "play_sound_when_agent_done": false,
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    }
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": false,
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "base_keymap": "VSCode",
+  // Theme
+  "ui_font_size": 15,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "GitHub Dark Classic"
+  },
+  "ui_font_family": "PingFang SC",
+  "buffer_font_family": "Menlo",
+  "experimental.theme_overrides": {},
+  // 根据缩进级别着色
+  "indent_guides": {
+    "coloring": "indent_aware"
+  },
+  // 启用文件图标显示，在标签页中显示文件类型对应的图标
+  // 在标签页中显示文件的 Git 状态
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  // 内联提示设置
+  "inlay_hints": {
+    "enabled": true
+  },
+  // Base Settings
+  "tab_size": 2,
+  // 启用文件保存时自动格式化功能
+  "format_on_save": "on",
+  "formatter": "prettier",
+  // 设置格式化
+  "prettier": {
+    "semi": false,
+    "allowed": true,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "jsxSingleQuote": true,
+    "singleQuote": true
+  },
+  // 设置垂直滚动的边距
+  "vertical_scroll_margin": 6,
+  // 编辑器启动时自动恢复上次打开的文件或会话
+  "restore_on_startup": "last_session",
+  // 禁用在新行继续注释的功能
+  "extend_comment_on_newline": false,
+  // 将特定的文件扩展名与它们对应的文件类型进行关联
+  "file_types": {
+    "C++": ["c", "h", "cpp", "hpp"],
+    "*.mdx": ["markdown"]
+  },
+  // 文件扫描时要排除的文件和目录模式
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/vendor",
+    "**/.tmp*"
+  ],
+  "terminal": {
+    "font_size": 12,
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    // 启用在终端中选择文本时自动复制到剪贴板的功能
+    "copy_on_select": true
+  },
+  "git": {
+    // 在编辑器的行号栏（gutter）中显示 Git 状态，仅显示已跟踪文件的状态
+    "git_gutter": "tracked_files",
+    // 在代码行旁边显示最后一次修改该行的提交信息
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_code_navigation": true,
+    "enable_preview_from_file_finder": true
+  },
+  // 换行
+  "soft_wrap": "editor_width",
+  // 关闭协作面板按钮
+  "collaboration_panel": { "button": false },
+  // Code Settings
+  "languages": {
+    "Astro": {
+      "language_servers": ["astro-language-server", "..."],
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-astro"]
+      }
+    },
+    "CSS": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Diff": {
+      "show_edit_predictions": false,
+      "remove_trailing_whitespace_on_save": false,
+      "ensure_final_newline_on_save": false
+    },
+    "Git Commit": {
+      "allow_rewrap": "anywhere",
+      "soft_wrap": "editor_width",
+      "preferred_line_length": 72
+    },
+    "Go": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      },
+      "debuggers": ["Delve"]
+    },
+    "Plain Text": {
+      "show_edit_predictions": false
+    },
+    "HTML": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "JavaScript": {
+      "prettier": {
+        "allowed": true
+      },
+      "language_servers": ["!typescript-language-server", "vtsls", "..."]
+    },
+    "TypeScript": {
+      "prettier": {
+        "allowed": true
+      },
+      "language_servers": ["!typescript-language-server", "vtsls", "..."]
+    },
+    "Vue.js": {
+      "language_servers": ["vue-language-server", "vtsls", "..."],
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Svelte": {
+      "language_servers": ["svelte-language-server", "..."],
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-svelte"]
+      }
+    },
+    "TSX": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Python": {
+      "formatter": {
+        "language_server": {
+          "name": "ruff"
+        }
+      },
+      "debuggers": ["Debugpy"]
+    }
+  },
+  "lsp": {
+    // Wakatime
+    "wakatime": {
+      "initialization_options": {
+        "api-key": "${WAKATIME_API_KEY}"
+      }
+    },
+    "vscode-html-language-server": {},
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "strictNullChecks": true,
+          "target": "ES2020"
+        }
+      }
+    },
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": ["import/order"]
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "prettier": {
+    "semi": false,
+    "allowed": true,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "jsxSingleQuote": true,
+    "singleQuote": true
+  },
+  "title_bar": {
+    "show_menus": false
+  },
   "edit_predictions": {
     "mode": "eager",
     "copilot": {
@@ -20,12 +31,20 @@
   "show_completions_on_input": true,
   "icon_theme": "Material Icon Theme",
   "agent": {
+    "profiles": {
+      "repo": {
+        "name": "Repo",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    },
     "always_allow_tool_actions": true,
     "play_sound_when_agent_done": false,
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "claude-opus-4.5"
     }
   },
   "telemetry": {
@@ -43,7 +62,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "GitHub Dark Classic"
+    "dark": "Dogxi Dark Theme"
   },
   "ui_font_family": "PingFang SC",
   "buffer_font_family": "Menlo",
@@ -66,20 +85,9 @@
   "tab_size": 2,
   // 启用文件保存时自动格式化功能
   "format_on_save": "on",
-  "formatter": "prettier",
-  // 设置格式化
-  "prettier": {
-    "semi": false,
-    "allowed": true,
-    "tabWidth": 2,
-    "bracketSpacing": true,
-    "jsxSingleQuote": true,
-    "singleQuote": true
-  },
   // 设置垂直滚动的边距
   "vertical_scroll_margin": 6,
-  // 编辑器启动时自动恢复上次打开的文件或会话
-  "restore_on_startup": "last_session",
+  // 编辑器启动时不会自动恢复上次打开的文件或会话
   // 禁用在新行继续注释的功能
   "extend_comment_on_newline": false,
   // 将特定的文件扩展名与它们对应的文件类型进行关联
@@ -101,6 +109,7 @@
     "**/.tmp*"
   ],
   "terminal": {
+    "font_family": "FiraCode Nerd Font Mono",
     "font_size": 12,
     "toolbar": {
       "breadcrumbs": false
@@ -113,7 +122,7 @@
     "git_gutter": "tracked_files",
     // 在代码行旁边显示最后一次修改该行的提交信息
     "inline_blame": {
-      "enabled": false
+      "enabled": true
     }
   },
   "preview_tabs": {
@@ -127,87 +136,56 @@
   "collaboration_panel": { "button": false },
   // Code Settings
   "languages": {
-    "Astro": {
-      "language_servers": ["astro-language-server", "..."],
-      "prettier": {
-        "allowed": true,
-        "plugins": ["prettier-plugin-astro"]
-      }
-    },
-    "CSS": {
-      "prettier": {
-        "allowed": true
-      }
-    },
-    "Diff": {
-      "show_edit_predictions": false,
-      "remove_trailing_whitespace_on_save": false,
-      "ensure_final_newline_on_save": false
-    },
-    "Git Commit": {
-      "allow_rewrap": "anywhere",
-      "soft_wrap": "editor_width",
-      "preferred_line_length": 72
-    },
-    "Go": {
-      "code_actions_on_format": {
-        "source.organizeImports": true
-      },
-      "debuggers": ["Delve"]
-    },
     "Plain Text": {
       "show_edit_predictions": false
     },
     "HTML": {
-      "prettier": {
-        "allowed": true
-      }
+      // HTML 功能格式化
+      "formatter": "language_server",
+      "language_servers": ["vscode-html-language-server"]
     },
     "JavaScript": {
+      "tab_size": 2,
       "prettier": {
         "allowed": true
       },
-      "language_servers": ["!typescript-language-server", "vtsls", "..."]
+      "format_on_save": "on",
+      "language_servers": ["typescript-language-server"],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     },
     "TypeScript": {
+      "tab_size": 2,
       "prettier": {
         "allowed": true
       },
-      "language_servers": ["!typescript-language-server", "vtsls", "..."]
+      "format_on_save": "on",
+      "language_servers": ["typescript-language-server"],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     },
-    "Vue.js": {
-      "language_servers": ["vue-language-server", "vtsls", "..."],
+    "Astro": {
+      "tab_size": 2,
       "prettier": {
         "allowed": true
-      }
-    },
-    "Svelte": {
-      "language_servers": ["svelte-language-server", "..."],
-      "prettier": {
-        "allowed": true,
-        "plugins": ["prettier-plugin-svelte"]
-      }
-    },
-    "TSX": {
-      "language_servers": ["!typescript-language-server", "vtsls", "..."],
-      "prettier": {
-        "allowed": true
-      }
-    },
-    "Python": {
-      "formatter": {
-        "language_server": {
-          "name": "ruff"
-        }
       },
-      "debuggers": ["Debugpy"]
+      "format_on_save": "on",
+      "language_servers": [
+        "astro-language-server",
+        "tailwindcss-language-server"
+      ],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     }
   },
   "lsp": {
     // Wakatime
     "wakatime": {
       "initialization_options": {
-        "api-key": "${WAKATIME_API_KEY}"
+        "api-key": "${WAKA_API_KEY}"
       }
     },
     "vscode-html-language-server": {},

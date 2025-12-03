@@ -13,7 +13,14 @@ import { join, extname, relative } from 'node:path'
 const ROOT_DIR = import.meta.dir.replace('/scripts', '')
 const SUPPORTED_EXTENSIONS = ['.json', '.yaml', '.yml', '.toml']
 const IGNORED_DIRS = ['node_modules', '.git', 'dist', 'scripts']
-const IGNORED_FILES = ['package-lock.json', 'bun.lockb', 'bun.lock']
+const IGNORED_FILES = [
+  'tsconfig.json',
+  'package.json',
+  'package-lock.json',
+  'bun.lockb',
+  'bun.lock',
+  '.secrets-patterns.json',
+]
 
 interface FormatResult {
   file: string

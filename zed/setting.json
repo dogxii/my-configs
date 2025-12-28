@@ -8,6 +8,27 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // 彩虹括号
+  "language_models": {
+    "openai_compatible": {
+      "foxcode": {
+        "api_url": "https: //code.newcli.com/claude/aws",
+        "available_models": [
+          {
+            "name": "claude-opus-4-5",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+            },
+          },
+        ],
+      },
+    },
+  },
   "colorize_brackets": true,
   "prettier": {
     "semi": false,
@@ -15,47 +36,43 @@
     "tabWidth": 2,
     "bracketSpacing": true,
     "jsxSingleQuote": true,
-    "singleQuote": true
+    "singleQuote": true,
   },
   "title_bar": {
-    "show_menus": false
+    "show_menus": false,
   },
   "edit_predictions": {
     "mode": "eager",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null,
-      "enterprise_uri": null
+      "enterprise_uri": null,
     },
-    "enabled_in_text_threads": false
+    "enabled_in_text_threads": false,
   },
   "show_edit_predictions": false,
   "show_completions_on_input": true,
   "icon_theme": "Material Icon Theme",
   "agent": {
-    "profiles": {
-      "repo": {
-        "name": "Repo",
-        "tools": {},
-        "enable_all_context_servers": false,
-        "context_servers": {}
-      }
-    },
     "always_allow_tool_actions": true,
     "play_sound_when_agent_done": false,
     "default_profile": "write",
     "default_model": {
+      "provider": "foxcode",
+      "model": "claude-opus-4-5",
+    },
+    "commit_message_model": {
       "provider": "copilot_chat",
-      "model": "claude-opus-4.5"
-    }
+      "model": "gpt-5-mini",
+    },
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": false,
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
   "base_keymap": "VSCode",
   // Theme
@@ -64,24 +81,24 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Dogxi Dark Theme"
+    "dark": "Dogxi Dark Theme",
   },
   "ui_font_family": "PingFang SC",
   "buffer_font_family": "Menlo",
   "experimental.theme_overrides": {},
   // 根据缩进级别着色
   "indent_guides": {
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   // 启用文件图标显示，在标签页中显示文件类型对应的图标
   // 在标签页中显示文件的 Git 状态
   "tabs": {
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
   },
   // 内联提示设置
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   // Base Settings
   "tab_size": 2,
@@ -95,7 +112,7 @@
   // 将特定的文件扩展名与它们对应的文件类型进行关联
   "file_types": {
     "C++": ["c", "h", "cpp", "hpp"],
-    "*.mdx": ["markdown"]
+    "*.mdx": ["markdown"],
   },
   // 文件扫描时要排除的文件和目录模式
   "file_scan_exclusions": [
@@ -108,29 +125,29 @@
     "**/.classpath",
     "**/.settings",
     "**/vendor",
-    "**/.tmp*"
+    "**/.tmp*",
   ],
   "terminal": {
     "font_family": "FiraCode Nerd Font Mono",
     "font_size": 12,
     "toolbar": {
-      "breadcrumbs": false
+      "breadcrumbs": false,
     },
     // 启用在终端中选择文本时自动复制到剪贴板的功能
-    "copy_on_select": true
+    "copy_on_select": true,
   },
   "git": {
     // 在编辑器的行号栏（gutter）中显示 Git 状态，仅显示已跟踪文件的状态
     "git_gutter": "tracked_files",
     // 在代码行旁边显示最后一次修改该行的提交信息
     "inline_blame": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "preview_tabs": {
     "enabled": true,
-    "enable_preview_from_code_navigation": true,
-    "enable_preview_from_file_finder": true
+    "enable_keep_preview_on_code_navigation": true,
+    "enable_preview_from_file_finder": true,
   },
   // 换行
   "soft_wrap": "editor_width",
@@ -139,72 +156,89 @@
   // Code Settings
   "languages": {
     "Plain Text": {
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
     },
     "HTML": {
-      // HTML 功能格式化
-      "formatter": "language_server",
-      "language_servers": ["vscode-html-language-server"]
+      "formatter": { "language_server": { "name": "biome" } },
+    },
+    "JSON": {
+      "formatter": { "language_server": { "name": "biome" } },
+    },
+    "CSS": {
+      "formatter": { "language_server": { "name": "biome" } },
     },
     "JavaScript": {
-      "tab_size": 2,
-      "prettier": {
-        "allowed": true
-      },
-      "format_on_save": "on",
-      "language_servers": ["typescript-language-server"],
+      "formatter": { "language_server": { "name": "biome" } },
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
+      },
     },
     "TypeScript": {
-      "tab_size": 2,
-      "prettier": {
-        "allowed": true
-      },
-      "format_on_save": "on",
-      "language_servers": ["typescript-language-server"],
+      "formatter": { "language_server": { "name": "biome" } },
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
+      },
+    },
+    "TSX": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
+      },
     },
     "Astro": {
-      "tab_size": 2,
-      "prettier": {
-        "allowed": true
-      },
-      "format_on_save": "on",
-      "language_servers": [
-        "astro-language-server",
-        "tailwindcss-language-server"
-      ],
+      "formatter": { "language_server": { "name": "biome" } },
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
-    }
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
+      },
+    },
   },
   "lsp": {
     // Wakatime
     "wakatime": {
       "initialization_options": {
-        "api-key": "${WAKA_API_KEY}"
-      }
+        "api-key": "YOUR_WAKA_API",
+      },
+    },
+    "biome": {
+      "settings": {
+        "formatter": {
+          "enabled": true,
+        },
+        "javascript": {
+          "formatter": {
+            // semi: false
+            "semicolons": "asNeeded",
+            // tabWidth: 2
+            "indentStyle": "space",
+            "indentWidth": 2,
+            // singleQuote/jsxSingleQuote: true
+            "quoteStyle": "single",
+            "jsxQuoteStyle": "single",
+            // bracketSpacing: true
+            "bracketSpacing": true,
+          },
+        },
+      },
     },
     "vscode-html-language-server": {},
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
           "strictNullChecks": true,
-          "target": "ES2020"
-        }
-      }
+          "target": "ES2020",
+        },
+      },
     },
     "eslint": {
       "settings": {
         "codeActionOnSave": {
-          "rules": ["import/order"]
-        }
-      }
-    }
-  }
+          "rules": ["import/order"],
+        },
+      },
+    },
+  },
 }

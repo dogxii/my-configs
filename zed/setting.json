@@ -7,7 +7,6 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  // 彩虹括号
   "language_models": {
     "openai_compatible": {
       "foxcode": {
@@ -29,6 +28,7 @@
       },
     },
   },
+  // 彩虹括号
   "colorize_brackets": true,
   "prettier": {
     "semi": false,

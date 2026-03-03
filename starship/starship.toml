@@ -1,0 +1,37 @@
+# 根据 schema 提供自动补全
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '$username $all$directory$character'
+add_newline = true
+command_timeout = 3_000
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+[username]
+style_user = 'green bold'
+style_root = 'red bold'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+
+[package]
+display_private = false
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_metrics]
+disabled = false
+
+[sudo]
+disabled = false
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
+
+[memory_usage]
+disabled = false
+format = "via $symbol[$ram_pct]($style) "

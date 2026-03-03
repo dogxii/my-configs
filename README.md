@@ -42,18 +42,29 @@ bun run all
 
 | 目录 | 描述 | 文件数 |
 | --- | --- | --- |
+| [starship](./starship) | Starship 提示符配置 | 1 |
 | [zed](./zed) | Zed 编辑器配置 | 2 |
 
 ## 🗂️ 目录结构
 
 ```
 .
+├── 📁 starship
+│   └── 📄 starship.toml
 └── 📁 zed
     ├── 📄 Dogxi_theme.json
     └── 📄 setting.json
 ```
 
 ## 📋 配置详情
+
+### 📁 starship
+
+> Starship 提示符配置
+
+文件列表：
+
+- `starship.toml`
 
 ### 📁 zed
 
@@ -81,8 +92,8 @@ bun run all
 
 ## 📄 License
 
-MIT License © 2025
+MIT License © 2026
 
 ---
 
-<sub>🤖 README 自动生成于 2025/12/28 14:08:16</sub>
+<sub>🤖 README 自动生成于 2026/3/3 19:46:35</sub>
